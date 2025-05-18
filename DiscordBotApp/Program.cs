@@ -52,5 +52,11 @@ class Program
         {
             await message.Channel.SendMessageAsync("pong!");
         }
+
+        if (message.Content.ToLower() == "!hello")
+        {
+            await message.Channel.SendMessageAsync("หวัดดีน้าาา 😎");
+        }
+
     }
 }
