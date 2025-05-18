@@ -14,7 +14,7 @@ class Program
     {
         var config = new DiscordSocketConfig
         {
-            GatewayIntents = GatewayIntents.All
+            GatewayIntents = GatewayIntents.All | GatewayIntents.MessageContent
         };
 
         _client = new DiscordSocketClient(config);
@@ -45,6 +45,8 @@ class Program
     private async Task HandleMessageAsync(SocketMessage message)
     {
         if (message.Author.IsBot) return;
+
+        Console.WriteLine($"[DEBUG] ได้รับข้อความ: {message.Content}");
 
         if (message.Content.ToLower() == "!ping")
         {
